@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitLab Hook Live Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+
+  <main class="layout">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Real-Time Monitor</p>
+        <h1>GitLab Webhook Control Room</h1>
+        <p class="subtitle">Live hook logs, source intelligence, and activity counters in one dynamic dashboard.</p>
+      </div>
+      <div class="connection" id="connection-state">Connecting...</div>
+    </header>
+
+    <section class="stats-grid" id="top-stats">
+      <article class="stat-card">
+        <p>Total Events</p>
+        <h2 id="total-events">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Live Connections</p>
+        <h2 id="live-connections">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Top Event</p>
+        <h2 id="top-event">-</h2>
+      </article>
+      <article class="stat-card">
+        <p>Top Source</p>
+        <h2 id="top-source">-</h2>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel">
+        <div class="panel-head">
+          <h3>Event Type Count</h3>
+        </div>
+        <div id="event-bars" class="bars"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h3>Source Count</h3>
+        </div>
+        <div id="source-bars" class="bars"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h3>Recent Webhook Logs</h3>
+        </div>
+        <ul id="event-log" class="event-log"></ul>
+      </article>
+    </section>
+  </main>
+
+  <template id="log-item-template">
+    <li class="log-item">
+      <div class="log-top">
+        <span class="pill event-type"></span>
+        <span class="timestamp"></span>
+      </div>
+      <p class="log-title"></p>
+      <p class="log-meta"></p>
+    </li>
+  </template>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
